@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{zett}[Zettelkasten class]
 
-\LoadClass[article,10pt,oneside]{memoir}
+\LoadClass[article,10pt,twocolumn]{memoir}
 
 \RequirePackage{amsthm,amssymb,amsmath,stmaryrd,mathrsfs}
 \RequirePackage[T1]{fontenc}
@@ -31,9 +31,9 @@
 \ExplSyntaxOn
 
 \AtEndPreamble{
-  \setlrmarginsandblock{1.33in}{*}{1}
-  \setulmarginsandblock{1.4in}{*}{1}
-  \setheaderspaces{*}{2\onelineskip}{*}
+  \setlrmarginsandblock{2cm}{*}{1}
+  \setulmarginsandblock{2cm}{*}{1}
+  \setheaderspaces{*}{\onelineskip}{*}
   \checkandfixthelayout
 }
 
@@ -82,7 +82,7 @@
 %% Customizable
 
 \newlength\DieudonneNodeIndent
-\setlength\DieudonneNodeIndent{\parindent}
+\setlength\DieudonneNodeIndent{0pt}
 
 \NewDocumentCommand\DieudonneInterpunct{}{
   \textperiodcentered

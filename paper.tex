@@ -1,48 +1,376 @@
-\documentclass{zett}
+\documentclass[twocolumn]{zett}
 \input{preambles}
 \title{grass is always greener on the other side}
 \author{Frank Tsai}
 \date{\today}
 %\thanks{}
 \begin{document}
-\maketitle
-\tableofcontents
-
-\section{Introduction}
-\label{sec:introduction}
 
 \begin{node}
-  \label{node:hello}
-  It is the first numbered paragraph in \cref{sec:introduction}.
+  \textbf{Vision vs. processing}.
+  Descriptions of images vs. new images.
 \end{node}
-
-\begin{proof}
-  \begin{node}
-    \label{node:hello2}
-    You can put \verb|node| in \verb|proof|.
-  \end{node}
-\end{proof}
-
-\begin{thm}
-  Hello there.
-\end{thm}
-
-\begin{rmk}
-  Bonk
-\end{rmk}
-
-\subsection{This is a subsection}
-\label{sec:this-is-a-subsection}
-
-This is a subsection.
 
 \begin{node}
-  It is a numbered paragraph.
-  \cref{node:hello,node:hello2,sec:this-is-a-subsection}.
+  \textbf{Image formation factors}.
+  Lighting conditions, scene geometry, surface properties, and camera properties.
 \end{node}
 
+\begin{node}
+  \textbf{Physical parameters of image formation}.
+  Optics, sensor, geometry, photometry.
+\end{node}
 
-\bibliographystyle{alpha}
-\bibliography{all}
+\begin{node}
+  The \textbf{depth of field} is the distance between image planes where blur is tolerable.
+\end{node}
+
+\begin{node}
+  Smaller aperture increases the range in which the object is approximately in focus.
+\end{node}
+
+\begin{node}
+  \textbf{f-number}.
+  Greater f-number = darker images.
+  Brightness (illuminance) $\sim$ brightness of scene in len's FoV (luminance).
+  Decreases $\sim$ square of f-number.
+\end{node}
+
+\begin{node}
+  \textbf{CCD (charged-coupled device)}.
+  Most common, high sensitivity, high power, can't be individually addressed, blooming.
+\end{node}
+
+\begin{node}
+  \textbf{CMOS}.
+  Cheap to fab, low sensitivity, low power, can be individually addressed.
+\end{node}
+
+\begin{node}
+  \textbf{Bayer pattern}.
+  More green because human vision is more sensitive to green.
+  50\% green, 25\% red, 25\% blue.
+\end{node}
+
+\begin{node}
+  \textbf{Light flux}.
+  Power emitted within a solid angle.
+\end{node}
+
+\begin{node}
+  \textbf{Radiant intensity}.
+  Light flux emitted per unit solid angle.
+\end{node}
+
+\begin{node}
+  \textbf{Surface irradiance}.
+  Light flux incident per unit surface area.
+\end{node}
+
+\begin{node}
+  \textbf{Surface radiance}.
+  Light flux emitted per unit foreshortened area per unit solid angle.
+\end{node}
+
+\begin{node}
+  Image irradiance is proportional to scene radiance.
+\end{node}
+
+\begin{node}
+  Image brightness does not vary with scene depth.
+\end{node}
+
+\begin{node}
+  \textbf{Reflection mechanisms}.
+  Image intensity = surface (mirror, glass) + body (diffuse, matte, clay, paper).
+\end{node}
+
+\begin{node}
+  Color = convex combination of color of body reflection and color of surface reflection.
+\end{node}
+
+\begin{node}
+  \textbf{Image multiplication}.
+  Masking.
+\end{node}
+
+\begin{node}
+  \textbf{Image division}.
+  Shading correction.
+\end{node}
+
+\begin{node}
+  \textbf{Binary image}.
+  Zeroth moment = area.
+  First moment = center of area.
+  Least second moment = orientation (orthogonal to max second moment).
+\end{node}
+
+\begin{node}
+  Roundedness = min second / max second.
+\end{node}
+
+\begin{node}
+  \textbf{2x2 matrix transformation}.
+  Origin $\to$ origin.
+  Line $\to$ line.
+  Parallel $\to$ parallel.
+  Closed under comp.
+\end{node}
+
+\begin{node}
+  \textbf{Affine transformation}.
+  Origin $\not\to$ origin.
+  Line $\to$ line.
+  Parallel $\to$ parallel.
+  Closed under comp.
+\end{node}
+
+\begin{node}
+  \textbf{Homographic transformation}.
+  Origin $\not\to$ origin.
+  Line $\to$ line.
+  Parallel $\not\to$ parallel.
+  Closed under comp.
+\end{node}
+
+\begin{node}
+  \begin{tabular}{cccc}
+    name & matrix & 2D DoF & 3D DoF\\\hline
+    translation & $[I | t]$ & 2 & 3\\\hline
+    rigid & $[R | t]$ & 3 & 6\\\hline
+    similarity & $[sR | t]$ & 4 & 7\\\hline
+    affine & $[A]$ & 6 & 12\\\hline
+    homography & $[H]$ & 8 & 15\\\hline
+  \end{tabular}
+\end{node}
+
+\begin{node}
+  \textbf{Salt and pepper noise}.
+  Random black and white.
+\end{node}
+
+\begin{node}
+  \textbf{Impulse noise}.
+  Random white.
+\end{node}
+
+\begin{node}
+  \textbf{Gaussian noise}.
+  Variation in intensity drawn from GND.
+\end{node}
+
+\begin{node}
+  \textbf{LSIS}.
+  Linear shift invariant system.
+\end{node}
+
+\begin{node}
+  \textbf{Median filtering}.
+  Good for simple noise.
+  Not good for not simple noise.
+\end{node}
+
+\begin{node}
+  Fourier transform useful because easier to remove unwanted frequencies and faster to compute some operations.
+\end{node}
+
+\begin{node}
+  \textbf{Phase} preserves geometric information.
+  Modulus does not.
+\end{node}
+
+\begin{node}
+  \textbf{Weiner deconvolution} compensates amplified high-frequency noise.
+\end{node}
+
+\begin{node}
+  \textbf{RGB} - screen, camera.
+  \textbf{CMYK} - printers.
+  \textbf{HSI} - human describable model.
+  \textbf{CIE Lab} - device independent model.
+\end{node}
+
+\begin{node}
+  \textbf{Edge} - rapid change in image intensity within a small region.
+  \textbf{Corner} - rapid change in all directions.
+\end{node}
+
+\begin{node}
+  $f$ is an image.
+  $\frac{df}{dx}$ - local extrema = edges.
+  $\frac{d^{2}f}{dx^{2}}$ aka Laplacian - local maxima = edges.
+  $\nabla f$ - image gradient = direction of most rapid increase in intensity.
+  \textbf{Finite difference approx} of $\nabla f$ is a convolution.
+\end{node}
+
+\begin{node}
+  \textbf{Hysteresis edge threshold}.
+  Two thresholds $t_{0}$, $t_{1}$.
+  $\lVert \nabla f \rVert < t_{0}$ - def not an edge.
+  $\lVert \nabla f \rVert > t_{1}$ - def an edge.
+  $t_{0} \leq \lVert \nabla f \rVert < t_{1}$ - an edge if a neighbor is def an edge.
+\end{node}
+
+\begin{node}
+  \begin{tabular}{cc}
+    Gradient & Laplacian\\\hline
+    location, modulus, direction & only location\\\hline
+    Maxima threshold detection & zero-crossing detection\\\hline
+    non-linear, needs 2 conv & linear, needs 1 conv
+  \end{tabular}
+\end{node}
+
+\begin{node}
+  \textbf{Harris corner detection}.
+  Both eigenvalues small - flat.
+  Both eigenvalues similar - corner.
+  One eigenvalue much larger - edge.
+\end{node}
+
+\begin{node}
+  \textbf{Canny edge detector}.
+  Filter image with derivative of Gaussian $\to$ find magnitude and orientation of gradient $\to$ non maximum supression: thin multi pixel ridges down to single pixel $\to$ linking and threshold (hysteresis) use high threshold to start edge curve and low threshold to continue them (wtf does it even mean??)
+\end{node}
+
+\begin{node}
+  \textbf{Hough transform}.
+  Points in image space become lines in parameter space.
+  Circles in image space become cones in parameter space.
+  Works on disconnected edges.
+  Relatively insensitive to occlusion and noise.
+  Effective for simple shapes.
+  Complex shapes: generalized Hough transform.
+  Trade-off between work in image space and parameter space.
+  Robust to outliers: each point votes separately.
+\end{node}
+
+\begin{node}
+  \textbf{Contour}.
+  An ordered list of control points connected by line segments of fixed length.
+  Goal is to maximize sum of gradient magnitude squared.
+\end{node}
+
+\begin{node}
+  \textbf{Object detection}.
+  Invariant descriptors: translation, rotation, scaling, illumination, occlusion.
+  Impacted by noise, blur, compression artifacts.
+  Local features: intensity - not a good choice, edge - poor localization, corner - ok for simple objects.
+  Global features: area, roundedness - useful for binary images, histogram - not invariant to intensity.
+\end{node}
+
+\begin{node}
+  \textbf{SIFT}.
+  Principal orientation - maximum in the histogram.
+  Robust to clutter.
+  Descriptors - compute gradient orientation normalized histogram of each of the four quadrants.
+\end{node}
+
+\begin{node}
+  \textbf{RANSAC}.
+  Choose $s$ samples (usually minimum needed to fit model) randomly.
+  Count number of inliers.
+  Repeat for some times.
+  Choose the best model.
+  For homography, $s = 4$.
+\end{node}
+
+\begin{node}
+  \textbf{Forward warping} - can result in holes.
+  \textbf{Backward warping} - fixes this.
+\end{node}
+
+\begin{node}
+  \textbf{Bakic flesh finder}.
+  Convert image to normalized space.
+  Use a classifier to find skin.
+  Find large connected components.
+\end{node}
+
+\begin{node}
+  \textbf{Haar features}.
+  Intensity in white $-$ intensity in black.
+\end{node}
+
+\begin{node}
+  \textbf{Integral image}.
+  This is just dynamic programming...
+\end{node}
+
+\begin{node}
+  \textbf{Nearest neighbor classifier}.
+  Larger training set = more robust NNC.
+  SVM - maximizes margin of decision boundary.
+\end{node}
+
+\begin{node}
+  \textbf{Boosting} for feature selection.
+  Train weak classifiers, increase weight where mistakes made, train another weak classifier, combine them.
+  Good vs SVM: integrates training and feature selection, training is linear not quadratic, flexibility in choice of weak learners, boosting scheme, testing is fast.
+  Bad vs SVM: need many examples, slow training, does not work as well as SVM (esp many-class).
+\end{node}
+
+\begin{node}
+  \textbf{Attentional cascade} chain increasingly more complex classifiers.
+  Reject non-face early.
+\end{node}
+
+\begin{node}
+  \textbf{Training cascade}.
+  Set target detection and false pos rates for each stage.
+  Keep adding features until targets met.
+  If false pos rate not low enough, add stage.
+  Use false pos from current stage as training examples for next.
+\end{node}
+
+\begin{node}
+  Face detection systems mature not perfect.
+  Frontal and side need different face models.
+\end{node}
+
+\begin{node}
+  Baseline - distance between camera.
+  Disparity - distance between pixels of some point on surface.
+  Depth $z$ is inversely proportional to disparity.
+  Disparity is proportional to baseline.
+\end{node}
+
+\begin{node}
+  \textbf{Window-based matching problems}: surface can't be repetitive.
+  Foreshortening effect.
+  Small window = sensitive to noise.
+  Large window = poor localization.
+  Adaptive window - use multiple sizes and use the best one.
+\end{node}
+
+\begin{node}
+  \textbf{Uncalibrated stereo}.
+  Intrinsics of cameras known.
+  Extrinsics unknown.
+\end{node}
+
+\begin{node}
+  \textbf{Epipole} - coordinate of one camera's origin in the other camera's image plane.
+  Every scene point lies on a unique epipolar plane.
+  Find epipolar line.
+  Use triangulation to compute depth.
+\end{node}
+
+\begin{node}
+  \textbf{Optical flow}.
+  Ideally, optical flow = motion field.
+  Not always the case: barber pole illusion, stationary sphere, spinning sphere.
+\end{node}
+
+\begin{node}
+  We can't determine optical flow parallel to the constraint line.
+\end{node}
+
+\begin{node}
+  \textbf{Lucas-Kanade solution}.
+  Assumes motion field and optical flow is constant within a small neighborhood.
+  $A^{T}A$ must be invertible and well-conditioned: their eigenvalues are not too small (smooth region) and not too different (edge).
+  Coarse-to-fine estimation.
+\end{node}
 
 \end{document}
